@@ -21,8 +21,10 @@ SwiftUI로 만든 iPhone용 계산기 앱입니다. iOS 기본 계산기와 비�
 ## Mac 없이 아이폰에서 테스트하기
 
 이 프로젝트의 원본 저장소는 Gogs(`http://ds.eamu.info:3000/kkw/ios_develop`)이며,
-Gogs에는 CI가 없습니다. GitHub에 미러를 만들어 Actions로 IPA를 빌드하고
-Windows의 AltStore로 설치하는 방법은 **[SIDELOAD.md](SIDELOAD.md)** 를 참고하세요.
+Gogs에는 CI가 없습니다. GitHub 미러(`https://github.com/kkw83/ios_calcul`)에
+Actions 워크플로가 있어 push하면 서명 없는 IPA를 만들어 줍니다.
+Windows에서 AltStore/Sideloadly로 설치하는 방법은 **[SIDELOAD.md](SIDELOAD.md)**,
+Mac에서 이어서 개발하는 방법은 **[MAC.md](MAC.md)** 를 참고하세요.
 
 ## 기능
 
@@ -65,6 +67,6 @@ Calculator/
 
 ## 참고
 
-이 저장소는 Windows 환경에서 생성되었기 때문에 Xcode 빌드/실행 검증은
-포함되어 있지 않습니다. Xcode에서 열어 처음 빌드할 때 서명 설정만
-확인해 주세요.
+Xcode 빌드는 GitHub Actions(macos-15)에서 확인되었습니다(성공).
+로컬 Windows 환경에는 Swift/Xcode가 없어 실행 검증은 하지 못했으므로,
+`MAC.md`의 절차대로 Xcode에서 한 번 실행해 보세요.
