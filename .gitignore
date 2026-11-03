@@ -6,5 +6,10 @@ xcuserdata/
 *.xcscmblueprint
 *.xccheckout
 
+# 빌드 산출물 / CI 다운로드
+dist/
+*.ipa
+build.log
+
 # macOS
 .DS_Store

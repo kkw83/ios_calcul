@@ -385,7 +385,7 @@ final class CalculatorModel {
     }
 
     private func validated(_ value: Decimal) -> Decimal? {
-        NSDecimalNumber(decimal: value) == NSDecimalNumber.notANumber ? nil : value
+        value.isNaN ? nil : value
     }
 
     private func radians(from degrees: Double) -> Double {

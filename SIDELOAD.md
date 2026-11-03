@@ -15,6 +15,14 @@ Mac 없이 Windows만으로 아이폰에 설치하는 방법입니다.
 > 빌드용 **GitHub 미러 저장소**를 하나 만들어 Actions를 실행합니다.
 > GitHub 저장소는 Private으로 만들어도 됩니다.
 
+**현재 연결된 저장소**
+
+| 용도 | 주소 |
+|---|---|
+| 원본 (Gogs) | http://ds.eamu.info:3000/kkw/ios_develop.git |
+| 빌드 미러 (GitHub) | https://github.com/kkw83/ios_calcul |
+| 빌드 결과물 | Actions 실행 → Artifacts → `Calculator-ipa` |
+
 무료 Apple ID로도 설치할 수 있지만 **7일마다 다시 서명(Refresh)** 해야 합니다.
 (유료 개발자 계정이면 1년 + TestFlight 사용 가능)
 
@@ -43,19 +51,17 @@ git commit -m "변경 내용"
 git push origin main
 ```
 
-### 1-B. GitHub 미러 (빌드용)
+### 1-B. GitHub 미러 (빌드용) — 설정 완료
 
-1. GitHub → **New repository** → 이름 `calculator` → 원하는 공개 범위 선택
-   → **README/.gitignore 는 추가하지 말고** Create
-2. 로컬 저장소에 미러 remote 추가 후 push:
+`github` remote 가 아래 주소로 등록되어 있습니다.
 
 ```powershell
 cd C:\Users\user\AI\ios
-git remote add github https://github.com/<본인계정>/calculator.git
+git remote add github https://github.com/kkw83/ios_calcul.git   # 이미 등록됨
 git push -u github main
 ```
 
-3. 이후 수정 사항은 양쪽에 push:
+2. 이후 수정 사항은 양쪽에 push:
 
 ```powershell
 git push origin main
@@ -81,6 +87,12 @@ git push github main
 5. 압축을 풀면 **`Calculator-unsigned.ipa`** 가 나옵니다.
 
 > 빌드가 실패하면 같은 화면의 로그 또는 `build-log` 아티팩트를 확인하세요.
+
+CLI로 받는 방법 (GitHub CLI 로그인 상태):
+
+```powershell
+gh run download -R kkw83/ios_calcul -n Calculator-ipa -D .\dist
+```
 
 ---
 
